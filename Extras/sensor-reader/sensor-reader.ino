@@ -26,51 +26,25 @@ void setup() {
 }
 
 void loop() {
-  // main program goes here
+  // main program
+  // LED gets brighter as ambient light gets lower
   
   sensorValue = analogRead(sensorPin);
-  //Serial.println(sensorValue);      // print out the value
   delay(10);
-  sensorValue = map(sensorValue, 0, 600, 0, 400);
 
+  // map to pwm friendly numbers
+  sensorValue = map(sensorValue, 500, 900, 0, 255);
 
-//  if (sensorValue > 0 && sensorValue < 100) {
-//    Serial.print(sensorValue);
-//    Serial.println(" test1");
-//  } else if (sensorValue > 100 && sensorValue < 200) {
-//    Serial.print(sensorValue);
-//    Serial.println(" test2");
-//  } else if (sensorValue > 200 && sensorValue < 300) {
-//    Serial.print(sensorValue);
-//    Serial.println(" test3");
-//  }
-
-
-  // change intensity of motor
-  //analogWrite(ledPin, sensorValue);
-
-  // change on/off (blink) rate
-  digitalWrite(ledPin, HIGH);       // turn the ledPin on
-  delay(sensorValue);                 // stop the program for <knobValue> ms
-  sensorValue = analogRead(sensorPin);
-  digitalWrite(ledPin, LOW);        // turn the ledPin off
-  delay(sensorValue);                 // stop the program for <knobValue> ms
-
-
-
-
-
-//  if (0 < sensorValue < 100) {
-//    Serial.print(sensorValue);
-//    Serial.println(" test1");
-//  } else if ( 100 < sensorValue < 200) {
-//    Serial.print(sensorValue);
-//    Serial.println(" test2");
-//  } else if (200 < sensorValue < 300) {
-//    Serial.print(sensorValue);
-//    Serial.println(" test3");
-//  }
+  // constrain to make sure we only get numbers between 0 and 255
+  sensorValue = constrain(sensorValue, 0, 255);
   
+  // invert the value
+  sensorValue = 255 - sensorValue;
 
+  // print out the value
+  Serial.println(sensorValue);
+
+  // tell the led what to do
+  analogWrite(ledPin, sensorValue);
 
 }
