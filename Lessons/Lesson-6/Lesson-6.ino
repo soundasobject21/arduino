@@ -32,11 +32,11 @@ void setup() {
 void loop() {
   // main program goes here
   
-  //buttonState = digitalRead(buttonPin); // check if switch is on
+  buttonState = digitalRead(buttonPin); // check if switch is on
   Serial.print("Button: ");
   Serial.println(buttonState);
 
-  if (digitalRead(buttonPin) == 1) {
+  if (buttonState == 1) {
     // button is pressed so read the value of the knob
     
     knobValue = analogRead(knobPin);
