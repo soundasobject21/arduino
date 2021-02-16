@@ -23,7 +23,7 @@
 
 **************************************/
 
-int ledPin = 10; // LED in series with 470 ohm resistor on pin 10
+int ledPin = 10;
 
 void setup()
 {
@@ -47,4 +47,3 @@ void loop()
 
   
 }
-
