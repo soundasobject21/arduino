@@ -33,7 +33,8 @@ void setup()
 void loop()
 {
   
-  // for (variable init; condition; increment) {}  
+  // for (variable init; condition; increment) {}
+  // i++ is shorthand for i=i+1;
   for (int i=0; i <= 255; i++){
     analogWrite(ledPin, i);
     delay(10);
