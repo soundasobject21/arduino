@@ -15,8 +15,9 @@ void loop() {
   buttonState = digitalRead(buttonPin);
   // check if the buttonState has changed
   if (buttonState != lastButtonState) {
-    // only if the new state is the press (not the release)
+    // only if it has been pressed (not released)
     if (buttonState == 1) {
+      // increment the counter
       counter = counter + 1;
       Serial.println(counter);
     }
