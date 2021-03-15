@@ -1,9 +1,6 @@
 /**************************************
- Read a sensor and send to Processing 
+ Read a pin and send to Processing 
  over serial communication
-
- For multiple sensors, see:
- https://forum.processing.org/two/discussion/6241/receive-multiple-sensor-information-from-arduino-to-processing
  
 **************************************/
 
@@ -19,6 +16,5 @@ void loop() {
   // read the sensor
   sensorValue = analogRead(sensorPin);
   // send value to serial port
-  Serial.println(sensorValue,DEC);
-
+  Serial.println(sensorValue);
 }
